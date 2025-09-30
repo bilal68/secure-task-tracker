@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose is informational; Railway still injects $PORT
-EXPOSE 8000
+EXPOSE 8080
 
 # Entrypoint: run migrations, then start server bound to $PORT
 COPY docker/entrypoint.sh /entrypoint.sh
