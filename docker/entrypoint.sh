@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 set -e
 
+# Ensure Python can import "app" from /app
+export PYTHONPATH="${PYTHONPATH:-/app}"
+
 # Normalize postgres scheme if provider gives postgres://
 if [ -n "$DATABASE_URL" ] && echo "$DATABASE_URL" | grep -q "^postgres://"; then
   export DATABASE_URL="$(echo "$DATABASE_URL" | sed 's#^postgres://#postgresql://#')"
